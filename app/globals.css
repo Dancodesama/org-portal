@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 15, 23, 42;
+  /* Slate 900 */
+  --background-end-rgb: 2, 6, 23;
+  /* Slate 950 */
+}
+
+@theme {
+  --font-sans: var(--font-inter);
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom right,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb)));
+  min-height: 100vh;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Utility Classes - Defined manually to avoid @apply issues with v4 alpha */
+.glass {
+  background-color: rgb(255 255 255 / 0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgb(255 255 255 / 0.2);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.glass-card {
+  background-color: rgb(15 23 42 / 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgb(51 65 85 / 0.5);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.glass-input {
+  background-color: rgb(30 41 59 / 0.5);
+  border: 1px solid rgb(71 85 105 / 0.5);
+  color: white;
+  backdrop-filter: blur(4px);
+  transition: all 300ms;
+}
+
+.glass-input::placeholder {
+  color: rgb(148 163 184);
+}
+
+.glass-input:focus {
+  border-color: rgb(99 102 241);
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(99 102 241 / 0.2);
+}
+
+.glass-button {
+  background-color: rgb(79 70 229);
+  color: white;
+  box-shadow: 0 10px 15px -3px rgb(99 102 241 / 0.3);
+  transition: all 300ms;
+}
+
+.glass-button:hover {
+  background-color: rgb(99 102 241);
+  transform: scale(1.02);
+}
+
+.glass-button:active {
+  transform: scale(0.98);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
